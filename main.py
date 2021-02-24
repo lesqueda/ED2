@@ -28,4 +28,12 @@ class Node():
         self.inorder(a.left)
         print(a.dato)
         self.inorder(a.right)
+    #preorder Jhosh Gómez
+    def preorder(self, value)
+         if value == None:
+             return None
+         else:
+             print(value)
+             self.preorder(value.left)
+             self.preorder(value.right)
 
