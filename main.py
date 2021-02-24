@@ -39,7 +39,7 @@ tree = arbol()
 while True:
     os.system("cls")
     print("Arbol Binario. Opciones:")
-    opt = input("\n1.-Insertar nodo \n2.-Inorden \n3.-Preorden \n4.-Postorden \n5.-Buscar \n6.-Salir \n\nPor favor elija una opcion -> ")
+    opt = input("\n1.-Insertar nodo \n2.-Mostrar recorridos de árbol \n3.-Buscar \n4.-Salir \n\nPor favor elija una opcion -> ")
 
     if opt == '1':
         nodo = input("\nIngrese el nodo -> ")
@@ -52,18 +52,13 @@ while True:
         if tree.root == None:
             print("Vacio")
         else:
+            print("Recorrido inorder")
             tree.inorder(tree.root)
-    elif opt == '3':
-        if tree.root == None:
-            print("Vacio")
-        else:
+            print("Recorrido preorder")
             tree.preorder(tree.root)
-    elif opt == '4':
-        if tree.root == None:
-            print("Vacio")
-        else:
+            print("Recorrido postorder")
             tree.postorder(tree.root)
-    elif opt == '5':
+    elif opt == '3':
         nodo = input("\nIngrese el nodo a buscar -> ")
         if nodo.isdigit():
             nodo = int(nodo)
@@ -73,8 +68,8 @@ while True:
                 print("\nNodo encontrado -> ",tree.buscar(nodo, tree.root), " si existe...")
         else:
             print("\nIngrese solo digitos...")        
-    elif opt == '6':
-        print("\nElegiste salir...\n")
+    elif opt == '4':
+        print("\nGracias por participar. Adios.\n")
         os.system("pause")
         break
     else:
