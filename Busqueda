@@ -1,0 +1,10 @@
+while True:
+    buscar=input("indica el valor: ")
+    if buscar=="":
+        break
+ 
+    try:
+        buscar=int(buscar)
+    except:
+        print("indica el valor")
+        continue
