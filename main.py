@@ -29,3 +29,10 @@ class Node():
         print(a.dato)
         self.inorder(a.right)
 
+#Francisco, Miguel, Jorge, Jairo
+    def postorden(nodo):
+        if  node.value!= None:
+            postorden(nodo.left())
+            postorden(nodo.right())
+            print(nodo.value)
+     #
