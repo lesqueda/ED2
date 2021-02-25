@@ -32,7 +32,7 @@ class Node():
         self.inorder(a.left)
         print(a.dato)
         self.inorder(a.right)
-    #preorder Jhosh Gómez
+    #preorder Jhosh Gómez Taller#1
     def preorder(self, value)
          if value == None:
              return None
