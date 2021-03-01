@@ -1,95 +1,70 @@
 
-class Node():
-    def __init__(self, value):
-        self.value=value
-        self.left=None
-        self.right=None
-        
-    class arbol():
-    def __init__(self):
-        self.root = None
+class Nodo():
+    def __init__(self, valor):
+        self.valor=valor
+        self.izq=None
+        self.derecha=None
 
-      def insert(self, value):
-        if self.value:
-            if value>self.value:
-                if self.right==None:
-                    self.right=Node(value)
+    def insert(self, valor):
+        if self.valor:
+            if valor<self.valor:
+                if self.izq==None:
+                    self.izq=Nodo(valor)
                 else:
-                    self.right.insert(value) #Recursividad
-            if value<self.value:
-                if self.left==None:
-                    self.left=Node(value)
+                    self.izq.insert(valor) 
+            if valor>self.valor:
+                if self.derecha==None:
+                    self.derecha=Nodo(valor)
                 else:
-                    self.left.insert(value) 
-   inorder
-    def insert(self):
-        pass
+                    self.derecha.insert(valor) 
+        else:
+            self.valor=valor
+
     #carlos gonzalez y eduardo paris
-    def inorder(self, value):
-    if a==None:
-        return None
-    else:
-        self.inorder(a.left)
-        print(a.dato)
-        self.inorder(a.right)
-    #preorder Jhosh Gómez Taller#1
-    def preorder(self, value)
-         if value == None:
-             return None
-         else:
-             print(value)
-             self.preorder(value.left)
-             self.preorder(value.right)
+    def inorder(self,valores):
+        if self.izq:
+            self.izq.inorder(valores)
+        valores.append(self.valor)
+        if self.derecha:
+            self.derecha.inorder(valores)
+
+    #preorder Jhosh Gómez Taller
+    def preorder(self,valores):
+        valores.append(self.valor)
+        if self.izq:
+            self.izq.preorder(valores)
+        if self.derecha:
+            self.derecha.preorder(valores)
                 
     #Francisco, Miguel, Jorge, Jairo
-    def postorden(nodo):
-        if  node.value!= None:
-            postorden(nodo.left())
-            postorden(nodo.right())
-            print(nodo.value)
-
-tree = arbol()
+    def postorden(self, valores):
+        if self.izq:
+            self.izq.postorden(valores)
+        if self.derecha:
+            self.derecha.postorden(valores)
+        valores.append(self.valor)
 
 #Muestra las opciones de recorrido y tratamiento del árbol
-while True:
-    os.system("cls")
-    print("Arbol Binario. Opciones:")
-    opt = input("\n1.-Insertar nodo \n2.-Mostrar recorridos de árbol \n3.-Buscar \n4.-Salir \n\nPor favor elija una opcion -> ")
-
-    if opt == '1':
-        nodo = input("\nIngrese el nodo -> ")
-        if nodo.isdigit():
-            nodo = int(nodo)
-            tree.root = tree.insert(tree.root, nodo)
-        else:
-            print("\nIngrese solo digitos...")
-    elif opt == '2':
-        if tree.root == None:
-            print("Vacio")
-        else:
-            print("Recorrido inorder")
-            tree.inorder(tree.root)
-            print("Recorrido preorder")
-            tree.preorder(tree.root)
-            print("Recorrido postorder")
-            tree.postorder(tree.root)
-    elif opt == '3':
-        nodo = input("\nIngrese el nodo a buscar -> ")
-        if nodo.isdigit():
-            nodo = int(nodo)
-            if tree.buscar(nodo, tree.root) == None:
-                print("\nNodo no encontrado...")
-            else:
-                print("\nNodo encontrado -> ",tree.buscar(nodo, tree.root), " si existe...")
-        else:
-            print("\nIngrese solo digitos...")        
-    elif opt == '4':
-        print("\nGracias por participar. Adios.\n")
-        os.system("pause")
-        break
-    else:
-        print("\nElija una opcion correcta...")
-    print()
-    os.system("pause")
-
-print()
+if __name__=="__main__":
+    root=None
+    sentinel=True
+    while not root:
+        root=Nodo(int(input("Bienvenido a Arbol Binario. Por favor, introduce tu valor raiz: ")))
+    while sentinel:
+        valores=[]
+        opc=input("\n ¿Que accion deseas realizar ahora? \n 1. Insertar un valor al arbol \n 2. Recorrido Inorden \n 3. Recorrido Post Orden \n 4. Recorrido Preorden \n 5. Salir \n Opción: ")
+        if opc=="1":
+            valor=int(input("Introduce un valor: "))
+            root.insert(valor)
+            print(f"Valor '{valor}' insertado con exito")
+        if opc=="2":
+            root.inorder(valores)
+            print("-".join([str(valor) for valor in valores]))
+        if opc=="3":
+            root.postorden(valores)
+            print("-".join([str(valor) for valor in valores]))
+        if opc=="4":
+            root.preorder(valores)
+            print("-".join([str(valor) for valor in valores]))
+        if opc=="5":
+            sentinel=False
